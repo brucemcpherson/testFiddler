@@ -1,31 +1,36 @@
 /**
  * test fiddler
  * a functional way to play with sheet data
+ * uses library - cUseful
+ *  Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j
+ * this script is at 
+ * https://github.com/brucemcpherson/testFiddler
+ * https://script.google.com/d/
+ * 1iAi7USY6CatRwvqSf-2vhsxrSKUfsP4_ohO9rzmtD-LuPzAxNrdh_Qdt/edit?usp=sharing
  */
+
 function testFiddler() {
 
-  // get some data
   var sheetValues = SpreadsheetApp
     .openById('1h9IGIShgVBVUrUjjawk5MaCEQte_7t32XeEP1Z5jXKQ')
     .getSheetByName('airport list')
     .getDataRange()
     .getValues();
   
+  
   // where to write the tests.. change this some sheet of your own.
   var fiddleRange =  SpreadsheetApp
     .openById('1najG4ARQ2JsqEGxT8kKz_IeYWCuBzzpmyU0R9oq3I58')
     .getSheetByName('fiddleTest')
     .getDataRange();
-  
+
   // get a fiddler
-  var fiddler = new Fiddler();
+  var fiddler = new cUseful.Fiddler();
 
   // set up the values
   fiddler.setValues (sheetValues);
   var data = fiddler.getData();
-  
   Logger.log(JSON.stringify(data[0]));
-
   
   // try without headers
   fiddler.setHasHeaders(false);
@@ -35,7 +40,11 @@ function testFiddler() {
   fiddler.setHasHeaders(true);
   Logger.log(JSON.stringify(fiddler.getData().slice(0,2)));
 
-  
+  // you can modify the data and it will be reflected when output
+  fiddler.getData()[0].municipality += 
+    ' (' + fiddler.getData()[0].iso_region + ')'; 
+  Logger.log(JSON.stringify(fiddler.createValues().slice(0,2)));
+
   // can also set data via an object rather than values
   fiddler.setData([
     {name:'john',last:'smith'},
@@ -45,10 +54,10 @@ function testFiddler() {
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
-  
   //--- set the data back to original
   fiddler.setValues(sheetValues);
 
+  
   // filter only rows in USA
   fiddler.filterRows (function (row,properties) {
     return row.iso_country === "US";
@@ -69,6 +78,7 @@ function testFiddler() {
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
+  
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -81,7 +91,7 @@ function testFiddler() {
    // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
-  
+
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -95,10 +105,8 @@ function testFiddler() {
 
   //--- set the data back to original
   fiddler.setValues(sheetValues);
-  
   // change the data in columns 
-  // change feet to meters
-  // change the title
+  // change feet to meters & the title
   fiddler.mapColumns (function (values,properties) {
     return properties.name === "elevation_ft" ? 
       values.map(function(d) { return d * 0.3048; }) : values;
@@ -110,11 +118,9 @@ function testFiddler() {
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
+  
   //--- set the data back to original
   fiddler.setValues(sheetValues);
-  
-  // add some rows
-  
   // insert 2 at the beginning
   fiddler
   .insertRows(0,2)
@@ -127,7 +133,6 @@ function testFiddler() {
   
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
-  
   
   // delete blank rows
   fiddler.filterRows (function (row, properties) {
@@ -151,7 +156,8 @@ function testFiddler() {
   
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
-  
+ 
+
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -162,7 +168,8 @@ function testFiddler() {
   
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
- 
+
+  
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -186,6 +193,7 @@ function testFiddler() {
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
+
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -195,7 +203,8 @@ function testFiddler() {
   
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
-   
+     
+
   
   //--- set the data back to original
   fiddler.setValues(sheetValues);
@@ -209,7 +218,9 @@ function testFiddler() {
   Logger.log (matches.map(function(d) {
     return fiddler.getData()[d].municipality;
   }));
-   
+  
+  
+  
   // insert a column at a specific place - the beginning
   // and add a timestamp
   fiddler
@@ -220,7 +231,7 @@ function testFiddler() {
 
   // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
- 
+
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
