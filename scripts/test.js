@@ -24,6 +24,7 @@ function testFiddler() {
     .getSheetByName('fiddleTest')
     .getDataRange();
 
+  
   // get a fiddler
   var fiddler = new cUseful.Fiddler();
 
