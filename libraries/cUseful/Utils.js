@@ -36,6 +36,7 @@ var Utils = (function (ns) {
       }
     });
     
+    
     // for recursion
     attempts = attempts || 1;
     
@@ -49,6 +50,22 @@ var Utils = (function (ns) {
       throw ns.errorStack("you need to specify a function for rateLimitBackoff to execute");
     }
     
+    function waitABit () {
+      
+      //give up?
+      if (attempts > options.maxAttempts) {
+        throw errorStack(err + " (tried backing off " + (attempts-1) + " times");
+      }
+      else {
+        // wait for some amount of time based on how many times we've tried plus a small random bit to avoid races
+        Utilities.sleep (
+          Math.pow(2,attempts)*options.sleepFor + 
+          Math.round(Math.random() * options.sleepFor)
+        );
+        
+      }
+    }
+    
     // try to execute it
     try {
       var response = callBack(options, attempts);
@@ -58,7 +75,7 @@ var Utils = (function (ns) {
         if(options.logAttempts) { 
           Logger.log("backoff lookahead:" + attempts);
         }
-        waitAbit();
+        waitABit();
         return ns.expBackoff ( callBack, options, attempts+1) ;
         
       }
@@ -83,24 +100,9 @@ var Utils = (function (ns) {
       }
     }
     
-    function waitAbit () {
 
-      //give up?
-      if (attempts > options.maxAttempts) {
-        throw errorStack(err + " (tried backing off " + (attempts-1) + " times");
-      }
-      else {
-        // wait for some amount of time based on how many times we've tried plus a small random bit to avoid races
-        Utilities.sleep (
-          Math.pow(2,attempts)*options.sleepFor + 
-          Math.round(Math.random() * options.sleepFor)
-        );
-        
-      }
-      
-    }
   }
-    
+
   /**
   * get the stack
   * @param {Error} e the error
@@ -138,6 +140,8 @@ var Utils = (function (ns) {
     }) ;
     
   }
+
+
   
   /**
    * convert a data into a suitable format for API
@@ -213,6 +217,17 @@ var Utils = (function (ns) {
     return c;
   };
   
+  /**
+  * @param {[*]} arguments unspecified number and type of args
+  * @return {string} a digest of the arguments to use as a key
+  */
+  ns.keyDigest = function () {
+    // conver args to an array and digest them
+    return Utilities.base64Encode (
+      Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_1,Array.prototype.slice.call(arguments).map(function (d) {
+        return (Object(d) === d) ? JSON.stringify(d) : d.toString();
+      }).join("-")));
+  }
 
   return ns;
 }) (Utils || {});
