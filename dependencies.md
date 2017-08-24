@@ -1,5 +1,5 @@
 # Google Apps Script Project: testFiddler
-This repo (testFiddler) was automatically updated on 27 July 2016 10:36:55 BST by GasGit
+This repo (testFiddler) was automatically updated on 24 August 2017 12:27:54 BST by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project testFiddler
@@ -10,14 +10,18 @@ The shared link for [testFiddler is here](https://script.google.com/d/1iAi7USY6C
 *name*|*type*
 --- | --- 
 test| server_js
+duplicateHighlight| server_js
+duplicateHighlightID| server_js
+duplicateCells| server_js
+duplicateCellsFiddler| server_js
 ### Directly referenced libraries
 *library*|*identifier*|*key*|*version*|*dev mode*|*source*|
 --- | --- | --- | --- | --- | --- 
-cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|43|no|[here](libraries/cUseful "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|83|no|[here](libraries/cUseful "library source")
 ### All dependencies and sub dependencies
 *library*|*identifier*|*key*|*version*|*dev mode*|*source*|
 --- | --- | --- | --- | --- | --- 
-cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|43|no|[here](libraries/cUseful "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|83|no|[here](libraries/cUseful "library source")
 ### Enabled Google Services
 no libraries discovered
 ###Need more detail ?
