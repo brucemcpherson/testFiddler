@@ -1,5 +1,5 @@
 # Google Apps Script Project: testFiddler
-This repo (testFiddler) was automatically updated on 15 September 2017 15:40:36 BST by GasGit
+This repo (testFiddler) was automatically updated on 20 September 2017 12:56:38 BST by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project testFiddler
@@ -23,19 +23,21 @@ curry| server_js
 composer| server_js
 mailTest| server_js
 testes6| server_js
+Monad| server_js
+shortener| server_js
+drivee| server_js
 ### Directly referenced libraries
 *library*|*identifier*|*key*|*version*|*dev mode*|*source*|
 --- | --- | --- | --- | --- | --- 
-cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|85|no|[here](libraries/cUseful "library source")
-cEs6Shim| cEs6Shim|M5hcRBoheg5BCfHa2tZzRsSz3TLx7pV4j|1|no|[here](libraries/cEs6Shim "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|unknown|no|[here](libraries/cUseful "library source")
 ### All dependencies and sub dependencies
 *library*|*identifier*|*key*|*version*|*dev mode*|*source*|
 --- | --- | --- | --- | --- | --- 
-cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|85|no|[here](libraries/cUseful "library source")
-cEs6Shim| cEs6Shim|M5hcRBoheg5BCfHa2tZzRsSz3TLx7pV4j|1|no|[here](libraries/cEs6Shim "library source")
+cUseful| cUseful|Mcbr-v4SsYKJP7JMohttAZyz3TLx7pV4j|unknown|no|[here](libraries/cUseful "library source")
 ### Enabled Google Services
 *library*|*identifier*|*version*
 --- | --- | --- 
+UrlShortener| UrlShortener|unknown
 Drive| Drive|unknown
 ###Need more detail ?
 You can see [full project info as json here](info.json)
