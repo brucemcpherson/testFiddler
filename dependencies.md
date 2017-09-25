@@ -1,5 +1,5 @@
 # Google Apps Script Project: testFiddler
-This repo (testFiddler) was automatically updated on 20 September 2017 12:56:38 BST by GasGit
+This repo (testFiddler) was automatically updated on 25 September 2017 17:25:15 BST by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project testFiddler
@@ -25,7 +25,8 @@ mailTest| server_js
 testes6| server_js
 Monad| server_js
 shortener| server_js
-drivee| server_js
+delda| server_js
+getDataFromApi| server_js
 ### Directly referenced libraries
 *library*|*identifier*|*key*|*version*|*dev mode*|*source*|
 --- | --- | --- | --- | --- | --- 
