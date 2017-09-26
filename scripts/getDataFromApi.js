@@ -76,6 +76,28 @@ function getDataFromApi() {
   }
   
 }
+function xx() {
 
+  Logger.log ({a:1}.length);
+}
+function updateFromApi () {
+
+
+  // either create or use an existing sheet
+  var ss = SpreadsheetApp.openById('1181bwZspoKoP98o4KuzO0S11IsvE59qCwiw4la9kL4o');
+  var sheet = ss.getSheetByName ("itunesapi") || ss.insertSheet("itunesapi");
+
+  
+  new cUseful.Fiddler(sheet)
+  .mapRows (function (row) {
+      // look up api.. for example using row.id or something
+      // set the fields of interest
+      row.name = "" ; // something from API
+      return row;
+  })
+  .dumpValues();
+
+
+}
 
    
