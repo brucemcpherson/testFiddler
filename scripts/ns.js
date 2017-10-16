@@ -1,72 +1,28 @@
-/**
- * a short cut to add nested properties to a an object
- * @param {object} [base] the base object
- * @param {string} propertyScheme something like "a.b.c" will extend as necessary
- * @return {object} base updated
- */
-function propify (propertyScheme ,base) {
-  
-  // if base not specified, create it
-  if (typeof base === typeof undefined) base = {};
-  
-  // make sure its an object
-  if (typeof base !== typeof {} ) throw 'propify:base needs to be an object';
-  
-  // work through the scheme
-  (propertyScheme || "").split (".")
-    .reduce (function (p,c) {
-    
-      // add a branch if not already existing
-      if (typeof p[c] === typeof undefined) p[c] = {};
-      
-      // make sure we're not overwriting anything
-      if (typeof p[c] !== typeof {}) throw 'propify:branch ' + c + ' not an object in ' + propertyScheme;
-      
-      // move down the branch
-      return p[c];
+// this is a local version of cUseful
 
-    } , base);
-  
-  // now should have the required shape
-  return base;
 
-}
+function testLocal() {
 
-function testPropertyBranch() {
-
-  // get from library
-  var propify = cUseful.Utils.propify;
+  // override library version for tests
+  this.cUseful = LocalcUseful;
   
-  Logger.log (propify("details"));
-  Logger.log (propify("details.profile"));
   
-  var card = propify("contact.details.profile", {contact:{}});
-  Logger.log (card);
+  testFiddler();
+  testPropify();
+  testDriveProper();
   
-  propify ("contact.details.profile.telephones", card);
-  Logger.log (card);
+  // this has a problem too
+  // checker:errorQualifies
+  // since errorQualifies is not defined
   
-  // can use a branch of the object to propify it, and will return the branch
-  var profile = propify ("telephones", card.contact.details.profile);
-  Logger.log (card);
-  Logger.log (profile);
+  //getDataFromApi();
   
-  // add another couple of branches 
-  propify ("emails" , profile);
-  propify ("urls", card.contact.details);
+  // currying(); doesnt work as it has a recursive and needs to be this.curry.apply
+  //,"curry":
+  //function () {
+  //  return curry.apply(null, Array.prototype.slice.call(arguments));
+  //}
   
-  Logger.log (card);
   
-  // we can use the branch
-  profile.telephones.mobile="1234"
   
-  // or the full object
-  card.contact.details.profile.telephones.home="1234";
-  
-  Logger.log (card);
-  
-  // should fail because mobile is not an object
-  propify ("contact.details.profile.telephones.mobile", card);
-  
-  Logger.log (card);
 }
