@@ -8,7 +8,12 @@
  * https://script.google.com/d/
  * 1iAi7USY6CatRwvqSf-2vhsxrSKUfsP4_ohO9rzmtD-LuPzAxNrdh_Qdt/edit?usp=sharing
  */
-
+function tsheet () {
+  var ss = SpreadsheetApp.openById('1h9IGIShgVBVUrUjjawk5MaCEQte_7t32XeEP1Z5jXKQ');                              
+  var fiddler =  new cUseful.Fiddler (ss.getSheetByName('airport list'));
+  var newFiddler = new cUseful.Fiddler().setData(fiddler.getData());
+  newFiddler.dumpValues(ss.getSheetByName('copylist'));
+}
 function testFiddler() {
 
   var sheetValues = SpreadsheetApp
