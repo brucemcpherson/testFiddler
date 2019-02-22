@@ -9,6 +9,12 @@
       "userSymbol": "Drive",
       "serviceId": "drive",
       "version": "v2"
+    }],
+    "libraries": [{
+      "userSymbol": "cUseful",
+      "libraryId": "1EbLSESpiGkI3PYmJqWh3-rmLkYKAtCNPi1L2YCtMgo2Ut8xMThfJ41Ex",
+      "version": "112",
+      "developmentMode": true
     }]
   },
   "webapp": {
