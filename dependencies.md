@@ -1,5 +1,5 @@
 # Google Apps Script Project: testFiddler
-This repo (testFiddler) was automatically updated on 31 October 2018 11:42:02 GMT by GasGit
+This repo (testFiddler) was automatically updated on 22 February 2019 19:11:14 GMT by GasGit
 
 For more information see the [desktop liberation site](http://ramblings.mcpher.com/Home/excelquirks/drivesdk/gettinggithubready "desktop liberation") or [contact me on G+](https://plus.google.com/+BruceMcpherson "Bruce McPherson - GDE")
 ## Details for Apps Script project testFiddler
@@ -34,9 +34,13 @@ luse| server_js
 conc| server_js
 appsscript| json
 ### Directly referenced libraries
-no libraries discovered
+*library*|*identifier*|*key*|*version*|*dev mode*|*source*|
+--- | --- | --- | --- | --- | --- 
+cUseful| cUseful|1EbLSESpiGkI3PYmJqWh3-rmLkYKAtCNPi1L2YCtMgo2Ut8xMThfJ41Ex|112|no|[here](libraries/cUseful "library source")
 ### All dependencies and sub dependencies
-no libraries discovered
+*library*|*identifier*|*key*|*version*|*dev mode*|*source*|
+--- | --- | --- | --- | --- | --- 
+cUseful| cUseful|1EbLSESpiGkI3PYmJqWh3-rmLkYKAtCNPi1L2YCtMgo2Ut8xMThfJ41Ex|112|no|[here](libraries/cUseful "library source")
 ### Enabled Google Services
 *library*|*identifier*|*version*
 --- | --- | --- 
