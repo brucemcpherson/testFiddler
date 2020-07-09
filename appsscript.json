@@ -2,10 +2,6 @@
   "timeZone": "Europe/London",
   "dependencies": {
     "enabledAdvancedServices": [{
-      "userSymbol": "UrlShortener",
-      "serviceId": "urlshortener",
-      "version": "v1"
-    }, {
       "userSymbol": "Drive",
       "serviceId": "drive",
       "version": "v2"
@@ -13,7 +9,7 @@
     "libraries": [{
       "userSymbol": "cUseful",
       "libraryId": "1EbLSESpiGkI3PYmJqWh3-rmLkYKAtCNPi1L2YCtMgo2Ut8xMThfJ41Ex",
-      "version": "112",
+      "version": "117",
       "developmentMode": true
     }]
   },
@@ -21,5 +17,6 @@
     "access": "MYSELF",
     "executeAs": "USER_DEPLOYING"
   },
-  "exceptionLogging": "STACKDRIVER"
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
 }
