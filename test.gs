@@ -189,6 +189,7 @@ function testFiddler() {
     // write to a sheet and take a look
   showFiddler (fiddler , fiddleRange);
 
+
   //--- set the data back to original
   fiddler.setValues(sheetValues);
   
@@ -249,22 +250,41 @@ function testFiddler() {
       properties.row.elevation_ft > 3000 ? 'really' : 'quite')  : 'not';
   });
 
+  // sort the the thing
+  fiddler.sortFiddler('elevation_ft', true)
+  
+  // poke in a new column unannounced
+  Logger.log('before adding');
+  Logger.log(Object.keys(fiddler.getData().slice(0,1)[0]));
+  fiddler.setData(fiddler.getData().map(f=>{f.end ='rubbish'; return f;}))
+  Logger.log('after adding');
+   Logger.log(Object.keys(fiddler.getData().slice(0,1)[0]));
+    // sort the the thing
+  fiddler.sortFiddler('elevation_ft', false)
+  Logger.log('afger sort');
+   Logger.log(Object.keys(fiddler.getData().slice(0,1)[0]));
   // write to a sheet and take a look
-  showFiddler (fiddler , fiddleRange);
+  showFiddler (fiddler , fiddleRange, true);
+  
+ 
   
   //--- set the data back to original
   fiddler.setValues(sheetValues);
 }
 
 // use this to clear output sheet and show results
-function showFiddler (fiddlerObject , outputRange) {
-  
+function showFiddler (fiddlerObject , outputRange, skipRange) {
+  fiddlerObject.dumpValues(outputRange.getSheet())
+
+  /*
   // clear and write result 
   outputRange
   .getSheet()
   .clearContents();
   
   fiddlerObject
-  .getRange(outputRange)
+  .setSheet(outputRange.getSheet())
+  .getRange(skipRange ? null : outputRange)
   .setValues(fiddlerObject.createValues());
+  */
 }
