@@ -1,7 +1,7 @@
 # Google Apps Script Project: testFiddler
 This repo (testFiddler) was automatically updated on 26/10/2020, 14:43:46 by GasGit
 
-For more information see the [desktop liberation site](https://ramblings.mcpher.com/drive-sdk-and-github/getting-your-apps-scripts-to-github "desktop liberation") or [contact me on G+](https://gitter.im/desktopliberation/community "Bruce McPherson - GDE")
+For more information see the [desktop liberation site](https://ramblings.mcpher.com/drive-sdk-and-github/getting-your-apps-scripts-to-github "desktop liberation") or [contact me on Gitter](https://gitter.im/desktopliberation/community "Bruce McPherson - GDE")
 ## Details for Apps Script project testFiddler
 Where possible directly referenced or sub referenced library sources have been copied to this repository, or you can include the library references shown. 
 The shared link for [testFiddler is here](https://script.google.com/d/1iAi7USY6CatRwvqSf-2vhsxrSKUfsP4_ohO9rzmtD-LuPzAxNrdh_Qdt/edit?usp=sharing "open in the GAS IDE")
