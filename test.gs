@@ -30,8 +30,11 @@ function testFiddler() {
     .getDataRange();
 
   
-  // get a fiddler
-  var fiddler = new cUseful.Fiddler();
+  // get a fiddler && set some blank values to test that
+  var fiddler = new cUseful.Fiddler().setData([{a:1}]);
+
+  // make a new one
+  fiddler = new cUseful.Fiddler();
 
   // set up the values
   fiddler.setValues (sheetValues);
